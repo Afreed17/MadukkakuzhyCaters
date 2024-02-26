@@ -1,0 +1,30 @@
+body{
+    font-family: Montserrat;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
