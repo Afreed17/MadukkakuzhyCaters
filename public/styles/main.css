@@ -1,5 +1,5 @@
-body{
-    font-family: Montserrat;
+main{
+    font-family: Epilogue;
 }
 
 .login{
@@ -9,7 +9,16 @@ body{
     height: 400px;
     margin: auto;
     text-align: center;
-    background-color: whitesmoke;
+    background-color: white;
+    margin-bottom: 100px;
+}
+
+.login h2
+{
+    color: #20716A;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
 }
 
 .login form{
@@ -21,10 +30,40 @@ body{
 
 }
 
+.login form input{
+    width:300px;
+    height: 40px;
+    text-align: center;
+
+}
+.login form input:focus{
+    outline: 0;
+}
+
+.loginBtn{
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    
+}
+
+
 footer{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 
+}
+
+.navBar{
+    display: flex;
+}
+
+.navEl{
+    display: flex;
+}
+
+.navEl ul{
+    display: flex;
 }

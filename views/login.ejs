@@ -5,9 +5,14 @@
     <h2>ADMIN LOGIN</h2>
 
     <form action="/login" method="post">
+        <label for="email">username or email</label>
         <input type="email" name="email" id="id">
+        <label for="password">password</label>
         <input type="password" name="password" id="password">
-        <button type="submit">OK</button>
+        <div class="loginBtn">
+            <button type="submit" class="btn btn-success">OK</button>
+            <button class="btn btn-success">Forgot Password</button>
+        </div>
     </form>
 
 
