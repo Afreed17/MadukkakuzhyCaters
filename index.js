@@ -21,6 +21,10 @@ app.get("/",(req,res)=>{
     res.render("login.ejs");
 })
 
+app.get("/reset",async(req,res)=>{
+    res.render("reset.ejs")
+})
+
 app.post("/login",async (req,res)=>{
 
     const email = req.body.email;
@@ -34,7 +38,7 @@ app.post("/login",async (req,res)=>{
         res.render("index.ejs");
        }
        else{
-        res.send("incorrect credentials");
+        res.render("login.ejs",{error:"incorrect credentilas"})
        }
     }
     catch(err)
@@ -42,6 +46,34 @@ app.post("/login",async (req,res)=>{
         console.log(err);
     }
 
+});
+
+app.post("/resetPassword",async(req,res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirmPassword = req.body.confirmPassword;
+
+    try{
+        if (email=="admin@gmail.com"){
+            if(password==confirmPassword){
+                await db.query("update login set password = ($1) where email = ($2)",[password,email])
+                res.render("login.ejs",{success:"successfully updated password"});
+            }
+            else{
+                res.render("reset.ejs",{pswdError:"password doesn't match"})
+            } 
+        }
+        else{
+            res.render("reset.ejs",{mailError:"Invalid Email"})
+        }
+    }
+    catch(err){
+
+    }
+})
+
+app.get("/login",async(req,res)=>{
+    res.render("login.ejs");
 })
 
 app.listen(port, () => {

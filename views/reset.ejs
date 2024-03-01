@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs'); -%>
+
+
+<div class="login">
+
+    <h2>Reset Password</h2>
+
+    <form action="/resetPassword" method="post">
+        <label for="email">username or email</label>
+        <input type="email" name="email" placeholder="<%= locals.mailError ? mailError :  'eg:user@email.com'%>" required>
+        <label for="password">password</label>
+        <input type="password" name="password" required placeholder="password">
+        <label for="confirmPassword">password</label>
+        <input type="password" name="confirmPassword" placeholder="<%= locals.pswdError ? pswdError :  'Confirm Password'%>" required>
+        <button type="submit" class="btn btn-success">OK</button>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

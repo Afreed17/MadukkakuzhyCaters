@@ -2,21 +2,27 @@
 
 <div class="login">
 
-    <h2>ADMIN LOGIN</h2>
+    <h2>Admin Login</h2>
 
-    <form action="/login" method="post">
-        <label for="email">username or email</label>
-        <input type="email" name="email" id="id">
-        <label for="password">password</label>
-        <input type="password" name="password" id="password">
-        <div class="loginBtn">
-            <button type="submit" class="btn btn-success">OK</button>
-            <button class="btn btn-success">Forgot Password</button>
-        </div>
-    </form>
+    <% if(locals.error){ %>
 
+        <h3>Incorrect Credentials</h3>
 
-</div>
+    <% }else{ %>
 
+        <form action="/login" method="post">
+            <label for="email">username or email</label>
+            <input type="email" name="email" id="id" placeholder="eg:user@email.com">
+            <label for="password">password</label>
+            <input type="password" name="password" id="password" placeholder="<%= locals.success ? success :  'Enter Password'%>">
+            <div class="loginBtn">
+                    <div>
+                        <button type="submit" class="btn btn-success">OK</button>
+                    </div>
+                </form>
+                <form action="/reset" method="get"><button class="btn btn-success" href="/reset">Forgot Password</button></form>
+            </div>
+
+    <%} %>
 
 <%- include('partials/footer.ejs'); -%>
