@@ -14,6 +14,7 @@ const db = new pg.Client({
   });
   db.connect();
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -35,7 +36,15 @@ app.post("/login",async (req,res)=>{
        const checkEmail = result.rows[0].email;
        const checkPassword = result.rows[0].password;
        if(email==checkEmail && password==checkPassword){
-        res.render("index.ejs");
+        try{
+            const result = await db.query("SELECT * FROM employees");
+            const items = result.rows
+            res.render("index.ejs",{data:items});
+        }
+        catch(err)
+        {
+            console.log(err)
+        }
        }
        else{
         res.render("login.ejs",{error:"incorrect credentilas"})
@@ -75,6 +84,21 @@ app.post("/resetPassword",async(req,res)=>{
 app.get("/login",async(req,res)=>{
     res.render("login.ejs");
 })
+
+app.post("/viewEach",async(req,res)=>{
+    const profileId = req.body.viewDetails;
+    try{
+        const result = await db.query("select * from employees where id =($1)",[profileId]);
+        const items = result.rows
+        console.log(items);
+        res.render("profile.ejs",{data:items});
+    }
+    catch(err){
+        res.send("404");
+    }
+})
+
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

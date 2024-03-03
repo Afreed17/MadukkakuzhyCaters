@@ -1,5 +1,26 @@
 <%- include('partials/header.ejs'); -%>
 
+<div class="staffList">
+
+    <h2>staff</h2>
+    <% if (locals.data){ %>
+        <% for(let item of data){%>
+            <form action="/viewEach" method="post">
+                 <div class="staffInfo">
+                    <h3><%= item.name %></h3>
+                    <p><%= item.designation %></p>
+                    <button id="viewDetails" name="viewDetails" value="<%= item.id %>">view</button>
+                </div>
+            </form>
+            <% } %>
+    <%  }else{ %>
+        
+        <h2>404</h2>
+
+    <%  } %>
+
+</div>
+
 
 <%- include('partials/footer.ejs'); -%>
 
