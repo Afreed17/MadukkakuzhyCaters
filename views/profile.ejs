@@ -1,15 +1,18 @@
 <%- include('partials/header.ejs'); -%>
 
 <div class="profile">
+  
     <% if (locals.data){%>
         <% for(let item of data){%> 
+        <div>  
             <h3><%= item.name %></h3>
             <p><%= item.designation %></p>
             <p><%= item.address %></p>
             <p><%= item.phone %></p>
             <p><%= item.email%></p>
             <p><%= item.salary%></p>
-            <% } %>
+        </div> 
+        <% } %>
     <%}else{%>
         <h3>sorry..!</h3>
         <%}%>

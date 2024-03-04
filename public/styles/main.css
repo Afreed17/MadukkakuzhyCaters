@@ -52,6 +52,9 @@ main{
     
 }
 
+.logo h2{
+    color: #1A5D1A;
+}
 
 footer{
     display: flex;
@@ -114,3 +117,31 @@ footer{
     margin:auto;
 }
 
+.staffList{
+    width: 100%;
+}
+
+.staffList h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  color: #1A5D1A;
+}
+
+.staffInfo{
+    width: 700px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.staffInfo h3{
+    color: #346751;
+}
+
+.staffInfo p{
+    color: #4E9F3D;
+}
