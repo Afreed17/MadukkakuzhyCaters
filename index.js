@@ -99,6 +99,27 @@ app.post("/viewEach",async(req,res)=>{
 })
 
 
+app.get("/add",async(req,res)=>{
+    res.render("add.ejs");
+})
+
+app.post("/addNew",async(req,res)=>{
+    const name = req.body.name;
+    const designation = req.body.designation;
+    const phone =req.body.phone;
+    const email = req.body.email;
+    const address = req.body.address;
+    const salary = req.body.salary;
+    try{
+        await db.query("insert into employees (name,designation,phone,email,address,salary) values (&1,&2,&3,&4,&5,&6)",[name,designation,phone,email,address,salary]);
+       res.redirect("/login");
+    }
+    catch(err){
+        console.log(err);
+        res.render("add.ejs");
+    }
+})
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

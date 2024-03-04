@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs'); -%>
+
+<form action="/addNew" method="post">
+    <input type="text" name="name" id="name" placeholder="enter the name" required>
+    <input type="text" name="designation" id="designation" placeholder="designation" required>
+    <input type="text" name="phone" id="phone" placeholder="enter phone number" required>
+    <input type="email" name="email" id="email" placeholder="enter the mail id" required>
+    <textarea name="address" id="address" cols="30" rows="10" placeholder="enter the address" required></textarea>
+    <input type="text" name="salary" id="salary" placeholder="enter salary" required>
+    <button type="submit">ok</button>
+</form>
+
+<%- include('partials/footer.ejs'); -%>

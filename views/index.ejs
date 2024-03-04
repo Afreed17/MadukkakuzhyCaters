@@ -11,8 +11,11 @@
                     <p><%= item.designation %></p>
                     <button id="viewDetails" name="viewDetails" value="<%= item.id %>">view</button>
                 </div>
-            </form>
+            </form> 
             <% } %>
+            <form action="/add" method="get">
+                <button id="addBtn">add</button>
+            </form>
     <%  }else{ %>
         
         <h2>404</h2>
