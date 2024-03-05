@@ -14,6 +14,12 @@ const db = new pg.Client({
   });
   db.connect();
 
+async function showStaff(){
+    const result = await db.query("SELECT * FROM employees");
+    const items = result.rows;
+    return items;
+}
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -37,8 +43,8 @@ app.post("/login",async (req,res)=>{
        const checkPassword = result.rows[0].password;
        if(email==checkEmail && password==checkPassword){
         try{
-            const result = await db.query("SELECT * FROM employees");
-            const items = result.rows
+            
+            const items = await showStaff();
             res.render("index.ejs",{data:items});
         }
         catch(err)
@@ -90,7 +96,6 @@ app.post("/viewEach",async(req,res)=>{
     try{
         const result = await db.query("select * from employees where id =($1)",[profileId]);
         const items = result.rows
-        console.log(items);
         res.render("profile.ejs",{data:items});
     }
     catch(err){
@@ -110,14 +115,16 @@ app.post("/addNew",async(req,res)=>{
     const email = req.body.email;
     const address = req.body.address;
     const salary = req.body.salary;
+
     try{
-        await db.query("insert into employees (name,designation,phone,email,address,salary) values (&1,&2,&3,&4,&5,&6)",[name,designation,phone,email,address,salary]);
-       res.redirect("/login");
-    }
-    catch(err){
-        console.log(err);
-        res.render("add.ejs");
-    }
+        await db.query("Insert into employees (name,designation,phone,email,address,salary) values ($1,$2,$3,$4,$5,$6)",[name,designation,phone,email,address,salary]);
+        const items = await showStaff();
+        res.render("index.ejs",{data:items});
+      }
+      catch(err){
+        console.log (err)
+      }
+    
 })
 
 
