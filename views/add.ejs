@@ -1,13 +1,59 @@
 <%- include('partials/header.ejs'); -%>
 
 <form action="/addNew" method="post">
-    <input type="text" name="name" id="name" placeholder="enter the name" required>
-    <input type="text" name="designation" id="designation" placeholder="designation" required>
-    <input type="text" name="phone" id="phone" placeholder="enter phone number" required>
-    <input type="email" name="email" id="email" placeholder="enter the mail id" required>
-    <textarea name="address" id="address" cols="30" rows="10" placeholder="enter the address" required></textarea>
-    <input type="text" name="salary" id="salary" placeholder="enter salary" required>
-    <button type="submit">ok</button>
+    <div class="addForm">
+        <h2>Add Employee</h2>
+        <div class="divEl">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" required>
+            </div>
+        </div>
+
+        <div class="divEmail">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email"  required>
+        </div>
+
+        <div class="divEl">
+            <div>
+                <label for="house">House Name</label>
+                <input type="text" name="house" id="house" required>
+
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" required>
+            </div>
+        </div>
+        <div class="divEl">
+            <div>
+                <label for="state">State</label>
+                <input type="text" name="state" id="state" required>
+            </div>
+            <div>
+                <label for="pincode">Pincode</label>
+                <input type="text" name="pincode" id="pincode" required>
+            </div>
+        </div>
+        <div class="divEl">
+            <div>
+                <label for="designation">Designation</label>
+                <input type="text" name="designation" id="designation" required>
+            </div>
+            <div>
+                <label for="salary">Salary</label>
+                <input type="text" name="salary" id="salary" required>
+            </div>
+        </div>
+        <button type="submit" ><img src="/assets/icons/Done.svg" alt="doneSvg" height="60px" width="60px"></button>
+    </div>
+   
 </form>
 
 <%- include('partials/footer.ejs'); -%>
+

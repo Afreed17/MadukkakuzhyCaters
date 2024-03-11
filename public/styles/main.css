@@ -145,3 +145,164 @@ footer{
 .staffInfo p{
     color: #4E9F3D;
 }
+
+footer{
+    color: #346751;
+    font-size: 20px;
+    margin:30px
+}
+
+
+/* profile */
+
+.entireProf
+{
+    width: 100%;
+    margin: auto;
+}
+
+.profHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.profHeader h3{
+    color: #1A5D1A;
+}
+
+.profHeader p{
+    color: #4E9F3D;
+}
+
+
+.profInfo{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    gap: 80px;
+    width:50%;
+    margin-top: 40px;
+}
+.profInfo h2{
+    color: #1A5D1A;
+    text-align:left;
+}
+.profInfo h4{
+    color: #346751;
+}
+
+.profInfo p{
+    color: #4E9F3D;
+}
+
+.contactInfo,.employmentInfo,.addressInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+ 
+} 
+
+.InfoDetails{
+    display: flex;
+    gap: 25%;
+
+}
+
+.InfoDetails div{
+    width:40%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.buttons button{
+    background-color: white;
+    border: none;
+}
+
+.buttons button:hover{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+/* add page */
+
+.addForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 50px;
+}
+
+.addForm h2{
+    color: #1A5D1A;
+}
+
+.addForm input{
+    width: 350px;
+    height: 55px;
+    border-radius: 6px;
+    border: solid 0.5px #1A5D1A;
+    text-align: center;
+    font-size: 18px;
+    color: #346751;
+
+}
+
+.addForm label{
+    font-size: 20px;
+    color: #346751;
+}
+
+.addForm input:focus{
+    outline: 0;
+}
+
+.addForm button{
+    background-color: white;
+    border: none;
+}
+
+.addForm button:hover{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.divEl{
+    display: flex;
+    gap: 100px;
+
+}
+
+.divEl div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.divEmail{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.divEmail input{
+    width: 800px;
+}
+
+.divEmail label{
+    margin-bottom: 10px;
+}

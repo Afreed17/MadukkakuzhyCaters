@@ -4,17 +4,89 @@
   
     <% if (locals.data){%>
         <% for(let item of data){%> 
-        <div>  
-            <h3><%= item.name %></h3>
-            <p><%= item.designation %></p>
-            <p><%= item.address %></p>
-            <p><%= item.phone %></p>
-            <p><%= item.email%></p>
-            <p><%= item.salary%></p>
-        </div> 
+        <div class="entireProf"> 
+            
+            <div class="profHeader">
+                <div class="profHeader1">
+                    <img src="/assets/icons/staffProf.svg" alt="profImage">
+                </div>
+                <div class="profHeader2">
+                    <h4><%= item.name %></h4>
+                    <p><%= item.designation %></p>
+                </div>
+            </div>
+
+                <div class="profInfo">
+
+                    <div class="contactInfo">
+                        <h2>Contact Information</h2>
+                        <div class="InfoDetails">
+                            <div>
+                                <h4>Email</h4>
+                                <p><%= item.email%></p>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><%= item.phone %></p>
+                            </div>
+                        </div>
+                    </div>
+               
+
+                    <div class="employmentInfo">
+                        <h2>Employment Information</h2>
+                        <div class="InfoDetails">
+                            <div>
+                                <h4>Position</h4>
+                                <p><%= item.designation%></p>
+                            </div>
+                            <div>
+                                <h4>Salary</h4>
+                                <p><%= item.salary %></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="addressInfo">
+                        <h2>Address Information</h2>
+                        <div class="InfoDetails">
+                            <div>
+                                <h4>House Name</h4>
+                                <p><%= item.housename%></p>
+                            </div>
+                            <div>
+                                <h4>City</h4>
+                                <p><%= item.city %></p>
+                            </div>
+                        </div>
+
+                            <div class="InfoDetails">
+                                <div>
+                                    <h4>State</h4>
+                                    <p><%= item.state %></p>
+                                </div>
+                                <div>
+                                    <h4>Pincode</h4>
+                                    <p><%= item.pincode %></p>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+                <div class="buttons">
+                    <form action="/delete" method="post">
+                        <button><img src="/assets/icons/delete.svg" alt="deleteIcon" width="40px" height="50px"></button>
+                        <input type="text" name="staffId" value="<%= item.id %>" hidden >
+                    </form>
+                    <form action="/edit" method="post">
+                        <button><img src="/assets/icons/edit.svg" alt="editIcon" width="40px" height="50px"></button>
+                        <input type="text" name="staffId" value="<%= item.id %>" hidden >
+                    </form>
+                </div>
+            </div> 
         <% } %>
     <%}else{%>
-        <h3>sorry..!</h3>
+        <h4>sorry..!</h4>
         <%}%>
 
 </div>
