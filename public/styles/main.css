@@ -2,6 +2,12 @@ main{
     font-family: Epilogue;
 }
 
+.header1{
+    display: flex;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
 .login{
     display: flex;
     flex-direction: column;
@@ -67,8 +73,12 @@ footer{
 .navBar{
     margin-top: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    margin-bottom: 50px;
+    padding: 10px;
+    transition: top 0.3s;
 }
 
 .navEl{
@@ -93,8 +103,19 @@ footer{
 .navBtn{
     margin: auto;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     gap:30px;
+}
+
+.aButton{
+   border: none;
+   background-color: white;
+}
+
+.aButton:hover{
+    text-decoration:underline;
+    color: #1A5D1A;
 }
 
 
@@ -111,10 +132,12 @@ footer{
     justify-content: center;
     align-items: center;
     margin-left: 25px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .logo h2{
-    margin:auto;
+    margin: 0%;
 }
 
 .staffList{
@@ -305,4 +328,30 @@ footer{
 
 .divEmail label{
     margin-bottom: 10px;
+}
+
+/* order Select css */
+
+.orderSelect{
+    display: flex;
+    gap:100px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.selectEl{
+    height: 500px;
+    width: 500px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #346751;
+    border-radius: 10px;
+    gap: 40px;
+    font-family: Montserrat;
+    color: #1A5D1A;
 }

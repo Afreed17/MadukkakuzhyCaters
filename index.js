@@ -1,5 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from 'url';
 import pg from "pg";
 // import fs from "fs";
 // import {google} from "googleapis";
@@ -71,12 +73,15 @@ async function showStaffAddress(){
     return items;
 }
 
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.get("/",(req,res)=>{
-    res.render("login.ejs");
+    res.sendFile(path.join(__dirname, 'public', 'homepage.html'));
 })
 
 app.get("/reset",async(req,res)=>{
@@ -97,7 +102,7 @@ app.post("/login",async (req,res)=>{
             
             const items = await showStaff();
             console.log(items);
-            res.render("index.ejs",{data:items});
+            res.render("staffList.ejs",{data:items});
         }
         catch(err)
         {
@@ -162,15 +167,16 @@ app.get("/add",async(req,res)=>{
 
 app.post("/delete",async(req,res)=>{
     const id = req.body.staffId;
-    try{
+    try{ 
+        await db.query("delete from address where id = ($1)",[id]);
         await db.query("delete from employees where id = ($1)",[id]);
         const items = await showStaff();
-        res.render("index.ejs",{data:items});
+        res.render("staffList.ejs",{data:items});
     }
     catch(err){
         console.log("error in delete route"+err);
         const items = await showStaff();
-        res.render("index.ejs",{data:items});
+        res.render("staffList.ejs",{data:items});
         
     }
 });
@@ -190,13 +196,107 @@ app.post("/addNew",async(req,res)=>{
         await db.query("Insert into employees (name,designation,phone,email,salary) values ($1,$2,$3,$4,$5)",[name,designation,phone,email,salary]);
         await db.query("Insert into address (housename,pincode,state,city) values ($1,$2,$3,$4)",[house,pincode,state,city]);
         const items = await showStaff();
-        res.render("index.ejs",{data:items});
+        res.render("staffList.ejs",{data:items});
       }
       catch(err){
         console.log (err)
       }
     
+});
+
+
+app.post("/edit",async(req,res)=>{
+    const id = req.body.staffId;
+    try{
+        const result = await db.query("select * from employees as e JOIN address as a ON e.id=a.id and e.id = ($1)",[id]);
+        const items = result.rows;
+        res.render("edit.ejs",{data:items})
+    }
+    catch(err)
+    {
+        console.log("error in edit route:"+err);
+        const items = await showStaff();
+        res.render("staffList.ejs",{data:items});
+    }
 })
+
+app.post("/editNew",async(req,res)=>{
+
+    const name = req.body.name;
+    const designation = req.body.designation;
+    const phone =req.body.phone;
+    const email = req.body.email;
+    const salary = req.body.salary;
+    const pincode = req.body.pincode;
+    const state = req.body.state;
+    const city = req.body.city;
+    const house = req.body.house;
+    const id = req.body.staffId;
+
+    try{
+        await db.query("UPDATE employees SET name = ($1), designation = ($2), phone = ($3), email = ($4), salary = ($5) WHERE id = ($6)",[name,designation,phone,email,salary,id]);
+        await db.query("UPDATE address SET pincode = ($1), state = ($2), city = ($3), housename = ($4) WHERE id = ($5)",[pincode,state,city,house,id]);
+        const items = await showStaff();
+        res.render("staffList.ejs",{data:items});
+      }
+      catch(err){
+        console.log ("error in new edit route:"+err);
+      }
+    
+
+})
+
+app.get("/staff",async(req,res)=>{
+    const items = await showStaff();
+    res.render("staffList.ejs",{data:items});
+})
+
+app.get('/orders', async(req, res) => {
+    res.render("checkOrder.ejs");
+});
+
+app.get('/about', async(req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'aboutUs.html'));
+});
+
+app.get("/book",async(req,res)=>{
+    res.render("orderSelect.ejs");
+})
+
+app.get("/menuOrder",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'menutrial.html'));
+});
+
+
+// app.post('/passArray', (req, res) => {
+//     const arrayData = req.body.arrayData;
+//     console.log('Received array:', arrayData);
+//     // Process the array data here
+//     res.send('Array received!');
+// });
+
+
+app.get("/stageOrder",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'stage.html'));
+})
+
+app.get("/service",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'service.html'));
+})
+
+
+app.post('/saveStages', (req, res) => {
+    const selectedStages = req.body;
+    console.log('Received selected stages data:', selectedStages);
+    // You can process the received data here, such as saving it to a database
+    // Respond to the client if needed
+    res.json({ message: 'Selected stages data received successfully' });
+});
+
+app.get("/JobApplication",async(req,res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'jobapplication.html'));
+});
+
 
 
 app.listen(port, () => {

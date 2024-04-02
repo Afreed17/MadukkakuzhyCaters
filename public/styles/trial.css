@@ -1,0 +1,142 @@
+body {
+  font-family: Arial, sans-serif;
+}
+.epilogue {
+  font-family: "Epilogue", sans-serif;
+  font-weight: 500;
+
+  @import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+}
+.logo img {
+  float: left;
+  width: 31px;
+  height: 30px;
+}
+
+.logo h3 {
+  position: relative;
+  top: 8px;
+  left: 10px;
+}
+.logo {
+  background-color: whitesmoke;
+  line-height: 50px;
+}
+
+.head2 {
+  list-style-type: none;
+  display: inline;
+  margin: 0px;
+  padding: 30px;
+
+  text-align: right;
+  font-size: medium;
+}
+.head1 {
+  float: left;
+  top: 0px;
+  margin: 0px;
+  padding: 10px;
+  line-height: 0px;
+  text-align: left;
+  padding-right: 500px;
+  list-style: none;
+}
+button {
+  background-color: rgba(20, 179, 45, 1);
+  border-radius: 5px;
+}
+menu.h,
+h3 {
+  text-decoration: underline;
+  padding: 10px;
+  padding-right: 0px;
+}
+input[type="radio"] {
+  padding: 0.5em;
+  -webkit-appearance: none;
+  outline: 0.1em solid black;
+  outline-offset: 0.1em;
+}
+
+input[type="radio"]:checked {
+  display: inline-block;
+  background-color: #000;
+}
+.item {
+  display: list-item;
+  text-align: left;
+  text-decoration: none;
+  list-style: none;
+}
+.card {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+}
+.card-container {
+  perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card-body {
+  flex-grow: 1;
+  padding: 1rem; /* Optional: Add padding for better visualization */
+}
+.card-content {
+  flex-grow: 1; /* Ensure content takes up available space */
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateX(15deg);
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+.selected-items {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 300px;
+}
+.selected-items h3 {
+  margin-top: 0;
+}
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  size: 50px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}

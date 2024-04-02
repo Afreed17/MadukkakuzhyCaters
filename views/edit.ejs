@@ -1,0 +1,66 @@
+<%- include('partials/header1.ejs'); -%>
+<% if (locals.data){%>
+    <% for(let item of data){%> 
+
+        <form action="/editNew" method="post">
+            <div class="addForm">
+                <h2>Edit Employee</h2>
+                <div class="divEl">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" value="<%= item.name %>" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" id="phone" value="<%= item.phone %>" required>
+                    </div>
+                </div>
+        
+                <div class="divEmail">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" value="<%= item.email %>" required>
+                </div>
+        
+                <div class="divEl">
+                    <div>
+                        <label for="house">House Name</label>
+                        <input type="text" name="house" id="house" value="<%= item.housename %>" required>
+        
+                    </div>
+                    <div>
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" value="<%= item.city %>" required>
+                    </div>
+                </div>
+                <div class="divEl">
+                    <div>
+                        <label for="state">State</label>
+                        <input type="text" name="state" id="state"value="<%= item.state %>" required>
+                    </div>
+                    <div>
+                        <label for="pincode">Pincode</label>
+                        <input type="text" name="pincode" id="pincode" value="<%= item.pincode %>" required>
+                    </div>
+                </div>
+                <div class="divEl">
+                    <div>
+                        <label for="designation">Designation</label>
+                        <input type="text" name="designation" id="designation" value="<%= item.designation %>" required>
+                    </div>
+                    <div>
+                        <label for="salary">Salary</label>
+                        <input type="text" name="salary" id="salary" value="<%= item.salary %>" required>
+                    </div>
+                </div>
+                <button type="submit" ><img src="/assets/icons/Done.svg" alt="doneSvg" height="60px" width="60px"></button>
+            </div>
+            <input type="text" name="staffId" value="<%= item.id %>" hidden >
+        </form>
+
+    <% } %>
+<%}else{%>
+    <h4>sorry..!</h4>
+    <%}%>
+
+<%- include('partials/footer1.ejs'); -%>
+

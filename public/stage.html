@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Explore Event Stages - Your Gateway to Unforgettable Experiences</title>
+    <style>
+        body {
+            font-family:Epilogue,Arial, sans-serif; 
+            color: #333; /* Dark gray text */
+            margin: 0;
+            padding: 0;
+        }
+
+        .navBar{
+            margin-top: 30px;
+            margin-bottom: 50px;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #436850; /* Green heading */
+            margin-top: 50px;
+            font-family: Montserrat;
+            margin-bottom: 50px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 10px;
+            gap: 40px;
+            max-width: 1200px; /* Limiting container width */
+            margin: 0 auto; /* Centering container */
+        }
+
+        .card {
+            width: calc(25% - 20px); /* Adjusted width for 4 cards in a row */
+            margin-bottom: 20px; /* Added margin between cards */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #fff; /* White background */
+        }
+
+        .card img {
+            width:100%;
+            height: 120px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #436850; /* Green price */
+        }
+
+        label {
+            color: #436850; /* Green label */
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        /* Styling for sorting and filtering elements */
+        #sort, #minPrice, #maxPrice {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #436850; /* Green border */
+            background-color: #fff; /* White background */
+            color: #436850; /* Green text */
+            margin-right: 10px;
+        }
+
+        #sort:hover, #minPrice:hover, #maxPrice:hover {
+            background-color: #f2f2f2; /* Light gray background on hover */
+        }
+
+        /* Styling for "Add to Cart" button */
+        .book-now-btn {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background-color: #436850; /* Green button */
+            color: #fff; /* White text */
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .book-now-btn:hover {
+            background-color: #436850; /* Darker green on hover */
+        }
+
+        /* Styling for the box */
+        
+        #cartBox {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px; /* Adjust padding to reduce box size */
+    margin-top: 20px;
+    max-width: 300px; /* Limit maximum width */
+    font-size: 14px; /* Adjust font size to reduce text size */
+    margin: 20px auto 0; /* Center the box horizontally */
+}
+
+
+        #cartItems {
+            margin-bottom: 20px;
+        }
+
+        .cartItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .cartItem p {
+            margin: 0;
+        }
+
+        .removeBtn {
+    background-color: #ff6666; /* Red button */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 6px; /* Adjust padding to reduce button size */
+    font-size: 12px; /* Adjust font size to reduce button size */
+    cursor: pointer;
+}
+
+
+        .removeBtn:hover {
+            background-color: #ff5050; /* Darker red on hover */
+        }
+
+        /* Styling for the submit box */
+        #cartBox button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Green button */
+            color: #fff; /* White text */
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #cartBox button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 24px;
+        font-family: 'Epilogue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #737373;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+
+    .sorting{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="navBar" >
+
+        <div class="logo">
+            <img src="/assets/icons/logo.svg" alt="logo" width="100px" height="50px">
+            <h2>Madukkakuzhy Caterers and Events</h2>
+        </div>
+    
+        <div class="navEl">
+    
+            <ul class="navList">
+                <li><form action="/" method="get" ><button class="aButton">Home</button></li></form>
+                <li><form action="/about" method="get" ><button class="aButton">About Us</button></li></form>
+                <li><form action="/service" method="get" ><button class="aButton">Services</button></li></form>
+                <li><form action="/JobApplication" method="get" ><button class="aButton">Job Application</button></li></form>
+                <li><form action="/contact" method="get" ><button class="aButton">Contact Us</button></li></form>
+            </ul>
+    
+    
+            
+            <div class="navBtn">
+                
+                <form action="/login" method="get"><button class="btn btn-success">Admin Login</button></form>
+                <form action="/book" method="get"><button class="btn btn-success">Book Now</button></form>
+            </div>
+        </div>
+    
+    </div>
+    <h1>Explore Event Stages - Your Gateway to Unforgettable Experiences</h1>
+    <div class="sorting">
+        <label for="sort">Sort by Stage Price:</label>
+        <select id="sort">
+            <option value="default">Default</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+        </select>
+
+        <label for="priceFilter">Filter by Price (INR):</label>
+        <input type="number" id="minPrice" placeholder="Minimum Price" min="0" max="200000">
+        <input type="number" id="maxPrice" placeholder="Maximum Price" min="0" max="200000">
+    </div>
+    <div class="container" id="eventCards">
+        <!-- Cards will be dynamically populated here -->
+    </div>
+
+    <!-- Box to show selected card items -->
+    <div id="cartBox">
+        <h2>Selected Items</h2>
+        <div id="cartItems"></div>
+        <form action="/saveStages" method="post"> <button id="enquiryBtn" onclick="sendSelectedStages()">Submit Inquiry</button></form>
+    </div>
+
+     <script>
+        const events = [
+    { name: "Stage 1", price: 150000, image: "https://drive.google.com/thumbnail?id=146sj3wf0P8RPhYAFuH8XvruK5IdILKIa"},
+    { name: "Stage 2", price: 30000, image: "https://drive.google.com/thumbnail?id=1e38JS0txq0tesMSQuT9oWZMY9vqRXsD4" },
+    { name: "Stage 3", price: 60000, image: "https://drive.google.com/thumbnail?id=1d_Wb-mQpjcrS9A-NTuA14NShYLav1_kH" },
+    { name: "Stage 4", price: 25000, image: "https://drive.google.com/thumbnail?id=14nS-DrhhDByhrl7axJOCCWNdj47rGxnj" },
+    { name: "Stage 5", price: 70000, image: "https://drive.google.com/thumbnail?id=1alssxzSHYj-DM1QSSnIP4YyCFp4lHPEs" },
+    { name: "Stage 6", price: 100000, image: "https://drive.google.com/thumbnail?id=1w-2xo7l-BfC3iOtNHJpkPR7TLYwfQWA8" },
+    { name: "Stage 7", price: 35000, image: "https://drive.google.com/thumbnail?id=14Tz5k4ttVSoQ3WLA7guqF8M4DerO08nG" },
+    { name: "Stage 8", price: 10000, image: "https://drive.google.com/thumbnail?id=1JpUdOKGLQ9BLVZuzTAIOfNzxViUc9T1z" },
+    { name: "Stage 9", price: 27000, image: "https://drive.google.com/thumbnail?id=1JgRz88JwA08IwxZJbnx6pdOJnzMXOWf9" },
+    { name: "Stage 10", price: 23000, image: "https://drive.google.com/thumbnail?id=1xXY68qt3-ALX5h-n2m3CyUP7x8kMdgvz" },
+    { name: "Stage 11", price: 20000, image: "https://drive.google.com/thumbnail?id=1qTLXTLTtMdlOCZlGKFP63DDOJvFeqNCf" },
+    { name: "Stage 12", price: 24000, image: "https://drive.google.com/thumbnail?id=1XCHFM4n6pCrffMA2KeEYlaH7FCFxL5DC" },
+    { name: "Stage 13", price: 25000, image: "https://drive.google.com/thumbnail?id=1QJ-KDsYtyH3weVEaOgkuztP_gNos9Paj" },
+    { name: "Stage 14", price: 26000, image: "https://drive.google.com/thumbnail?id=1dznxfH34S64Cowaxn7k7CFWqxt2m86mf" },
+    { name: "Stage 15", price: 22000, image: "https://drive.google.com/thumbnail?id=1URRgNIXvTpHHzy40OmIPP_6rOlmqcLZ_" },
+    { name: "Stage 16", price: 28000, image: "https://drive.google.com/thumbnail?id=1lbn6yByk56ljUIzbZZ-CHv_x96-CaMd5" },
+    { name: "Stage 17", price: 30000, image: "https://drive.google.com/thumbnail?id=1UAXbD57sifu156KOvkwtAdfn3UgiMbJW" },
+    { name: "Stage 18", price: 40000, image: "https://drive.google.com/thumbnail?id=1L_1OLdvbAeNDp7ZHCkTaW7mQJQWn-CJh" },
+    { name: "Stage 19", price: 31000, image: "https://drive.google.com/thumbnail?id=1wc-bYIK9BGope5POFHZyBSuhadwndJEn" },
+    { name: "Stage 20", price: 33000, image: "https://drive.google.com/thumbnail?id=1oR6UtpTLtST_8Fmrbut7wm3MrsK0szmm" },
+    { name: "Stage 21", price: 34000, image: "https://drive.google.com/thumbnail?id=1o_K_Sk3TsJY34oRByQCTSGVAwP96eGSW" },
+    { name: "Stage 22", price: 32000, image: "https://drive.google.com/thumbnail?id=1ex3nPGOAE1vGh2KQOoaHCQIByjiGOFV_" },
+    { name: "Stage 23", price: 35000, image: "https://drive.google.com/thumbnail?id=1JnNGkxs0SQU116QBsRoIbi3DOK-UohfP" },
+    { name: "Stage 24", price: 50000, image: "https://drive.google.com/thumbnail?id=1p1eYDLuKwCoNHp7qlPKzXjcoqedCay85" },
+    { name: "Stage 25", price: 36000, image: "https://drive.google.com/thumbnail?id=1awZRD88EYUrzUzRQHCtZBljqMikZxbTT" },
+    { name: "Stage 26", price: 38000, image: "https://drive.google.com/thumbnail?id=1n5JF4mTDgfVCWU_b_yCf4iZgdlx9J7iN" },
+    { name: "Stage 27", price: 50000, image: "https://drive.google.com/thumbnail?id=1gWMbRXxzOt0e2di4mPc3gbFjZSepQgr0" },
+    { name: "Stage 28", price: 40000, image: "https://drive.google.com/thumbnail?id=1_51RqY3U4TqKpziuqtcH4mTghER3xNl7" },
+    { name: "Stage 29", price: 80000, image: "https://drive.google.com/thumbnail?id=1-Kp76dC-H_R6JZTK2TzDlHxaKeC1Le5j" },
+    { name: "Stage 30", price: 42000, image: "https://drive.google.com/thumbnail?id=18A15qyN-PBjV7inM1xDau7H4FdGerNjQ" },
+    { name: "Stage 31", price: 20000, image: "https://drive.google.com/thumbnail?id=1H9J6RDtTmwPYYZMzv_jEBAXW4rBYRpBx" },
+    { name: "Stage 32", price: 90000, image: "https://drive.google.com/thumbnail?id=1oxpvkSaF5OggEWrm8mlBLLFZmq3niVu7" },
+    { name: "Stage 33", price: 30000, image: "https://drive.google.com/thumbnail?id=1H_tax0kdLQ-WeVHOLSzaLbhVYwfNx3Tv" },
+    { name: "Stage 34", price: 20000, image: "https://drive.google.com/thumbnail?id=1RU2D3V6Osn-dWE0t6QTYh3XVb8ZoVXLL" },
+    { name: "Stage 35", price: 47000, image: "https://drive.google.com/thumbnail?id=1capzEyagvkC9DzK0iDHRAsWXDPKxC1CB" },
+    { name: "Stage 36", price: 25000, image: "https://drive.google.com/thumbnail?id=10MuV56pgQU_T8Gy8rJCQNclnmGLAmkje" },
+    { name: "Stage 37", price: 49000, image: "https://drive.google.com/thumbnail?id=1-0V3t9hfBgv-H6mPcsuDGA58DZSohiZK" },
+    { name: "Stage 38", price: 50000, image: "https://drive.google.com/thumbnail?id=1K6HhVxAKP8UlXcJoX0P_-0wLB2HqrucZ" },
+    { name: "Stage 39", price: 99000, image: "https://drive.google.com/thumbnail?id=1uOG676aVJM6ullDFZed16c3WglXhjvOR" },
+    { name: "Stage 40", price: 75000, image: "https://drive.google.com/thumbnail?id=1SX0yGhM8Ce126vK3BVRJcyTBtP7u4xz3" },
+    { name: "Stage 41", price: 20000, image: "https://drive.google.com/thumbnail?id=1XFhjjGk8-90jREhPHgmWP3ZkbEsyfCxP" },
+    { name: "Stage 42", price: 54000, image: "https://drive.google.com/thumbnail?id=1KMTC9wriJZzo4wGwoYsr6lhIKWKfBq1H" },
+    { name: "Stage 43", price: 55000, image: "https://drive.google.com/thumbnail?id=17OuysS1CRX--8SCZWZV4GcwrE_uBKEpm" },
+    { name: "Stage 44", price: 18000, image: "https://drive.google.com/thumbnail?id=1VbpA1ADA3CFmvTVok2oePFbPIXSxj-U3" },
+    { name: "Stage 45", price: 20000, image: "https://drive.google.com/thumbnail?id=1LEmCtzuxBFic8EA2iimYELp_gtmjCkN5" },
+    { name: "Stage 46", price: 58000, image: "https://drive.google.com/thumbnail?id=19TK3Qsh366FBWpn7YzejEBJ1uslUvUhn" },
+    { name: "Stage 47", price: 25000, image: "https://drive.google.com/thumbnail?id=13lVLlxmjlq-jUmPHg4JDQr3K6rQQPeI2" },
+    { name: "Stage 48", price: 60000, image: "https://drive.google.com/thumbnail?id=1MWTw6zA-iaAQlzjQJ42WoOgXQsdxaweg" },
+    { name: "Stage 49", price: 55000, image: "https://drive.google.com/thumbnail?id=1cb7J0M5KMOwa0b6qR7DfIz7K0c0b1U78" },
+    { name: "Stage 50", price: 40000, image: "https://drive.google.com/thumbnail?id=1daX6ApYd8pMszRw-G9aJOzK3UIPerFhO" },
+    { name: "Stage 51", price: 25000, image: "https://drive.google.com/thumbnail?id=1WDywpKMH9N0qiQfwLpDKEBNaNhGDG5rE" },
+    { name: "Stage 52", price: 45000, image: "https://drive.google.com/thumbnail?id=1FIXtzznq4xJqTbnp9cwxGQRUaz0sPMMd" },
+    { name: "Stage 53", price: 10000, image: "https://drive.google.com/thumbnail?id=1Bfgb6IMeB_XmIScuoMJHrHlepwtfTsph" },
+    { name: "Stage 54", price: 30000, image: "https://drive.google.com/thumbnail?id=10Hk2dMBNddS76IAtKyNBBl1yQNp5RN3a" },
+    { name: "Stage 55", price: 17000, image: "https://drive.google.com/thumbnail?id=1PhRPf-i9SWH0xBpYMrdxrEHDKnMiDZeg" },
+    { name: "Stage 56", price: 30000, image: "https://drive.google.com/thumbnail?id=1epYT2F9BK3IcNWgoMGztEEKw3NofIhVp" },
+    { name: "Stage 57", price: 39000, image: "https://drive.google.com/thumbnail?id=1RFWg-cfSMkgIxxKXDqbugxbBT0_sm1jg" },
+    { name: "Stage 58", price: 50000, image: "https://drive.google.com/thumbnail?id=17CcALlDqXJy9b-BMhFVlITMdsG2lE84x" },
+    { name: "Stage 59", price: 70000, image: "https://drive.google.com/thumbnail?id=1A9woK-o0DK79UXsqWWt6FXTYPVILr8Lz" },
+    { name: "Stage 60", price: 150000, image: "https://drive.google.com/thumbnail?id=1iHfDc6cgdXpmVWJ49QPgDwjvd-7aSIke" },
+    { name: "Stage 61", price: 73000, image: "https://drive.google.com/thumbnail?id=1F251AM6NIjvIad_xWNUuuF3BbBaxmmKd" },
+    { name: "Stage 62", price: 74000, image: "https://drive.google.com/thumbnail?id=1b-uCpAGEGyMcIZBWxTF3iPXt4s3GoxUw" },
+    { name: "Stage 63", price: 30000, image: "https://drive.google.com/thumbnail?id=1HKMzQyUlZdtaJ1-K-CN-F225u3tcsM68" }
+
+];
+
+        // Function to render event cards
+        function renderEvents(events) {
+            const container = document.getElementById("eventCards");
+            container.innerHTML = "";
+            events.forEach(event => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                const img = document.createElement("img");
+                img.src = event.image;
+                card.appendChild(img);
+
+                const name = document.createElement("h3");
+                name.textContent = event.name;
+                card.appendChild(name);
+
+                const price = document.createElement("p");
+                price.classList.add("price");
+                price.textContent = `Price: INR ${event.price}`;
+                card.appendChild(price);
+
+                const addToCartBtn = document.createElement("button");
+                addToCartBtn.classList.add("book-now-btn");
+                addToCartBtn.textContent = "Add to Cart";
+                addToCartBtn.addEventListener("click", () => addToCart(event));
+                card.appendChild(addToCartBtn);
+
+                container.appendChild(card);
+            });
+        }
+        
+        
+        var selectedStages = [];
+        // Function to handle adding stages to the cart
+        function addToCart(stage) {
+            const cartItems = document.getElementById("cartItems");
+            const stageName = stage.name;
+            const stagePrice = stage.price;
+            const selStageObj = { name: stageName, price: stagePrice };
+            selectedStages.push(selStageObj);
+            console.log(selectedStages);
+            
+            const stageItem = document.createElement("div");
+            stageItem.classList.add("cartItem");
+
+            const stageInfo = document.createElement("p");
+            stageInfo.textContent = `${stageName} - INR ${stagePrice}`;
+            stageItem.appendChild(stageInfo);
+
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.classList.add("removeBtn");
+            removeBtn.addEventListener("click", () => removeFromCart(stageItem));
+            stageItem.appendChild(removeBtn);
+
+            cartItems.appendChild(stageItem);
+        }
+
+        // Function to handle removing stages from the cart
+        function removeFromCart(stageItem) {
+            const cartItems = document.getElementById("cartItems");
+            cartItems.removeChild(stageItem);
+            const index = selectedStages.findIndex(stage => stage.name === stageItem.firstChild.textContent.split(" - ")[0]);
+            
+            // If the stage is found, remove it from the selectedStages array
+            if (index !== -1) {
+                selectedStages.splice(index, 1);}
+
+        }
+
+        // Event listener for sorting
+        document.getElementById("sort").addEventListener("change", function() {
+            const sortBy = this.value;
+            let sortedEvents = [...events];
+            if (sortBy === "asc") {
+                sortedEvents.sort((a, b) => a.price - b.price);
+            } else if (sortBy === "desc") {
+                sortedEvents.sort((a, b) => b.price - a.price);
+            }
+            renderEvents(sortedEvents);
+        });
+
+        // Event listener for price range filter
+        document.getElementById("minPrice").addEventListener("input", filterEvents);
+        document.getElementById("maxPrice").addEventListener("input", filterEvents);
+
+        function filterEvents() {
+            const minPrice = document.getElementById("minPrice").value;
+            const maxPrice = document.getElementById("maxPrice").value;
+
+            let filteredEvents = events.filter(event => {
+                return event.price >= minPrice && event.price <= maxPrice;
+            });
+
+            renderEvents(filteredEvents);
+        }
+
+    async function sendSelectedStages(selectedStages) {
+    console.log(selectedStages)
+    const url = "http://localhost:3000/saveStages"; // Replace with your actual server endpoint
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(selectedStages)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Selected stages data sent successfully:", data);
+        // Handle successful response from the server if needed
+    })
+    .catch(error => {
+        console.error("Error sending selected stages data:", error);
+        // Handle errors if any
+    });
+}
+
+        // Initial rendering
+        renderEvents(events);
+    </script>
+</body>
+</html>

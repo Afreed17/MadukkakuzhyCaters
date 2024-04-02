@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Madukkakuzhy Caterers and Events</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-BqlN3b6gR/oB2y4k+ydzeZl3gNMpJGKwwIlIKt3JGyN73PQJzMQeILok9SJQcUKf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap";>
+    
+    <style>
+      body {
+        font-family: "Epilogue", sans-serif;
+        margin: 0;
+        padding: 0;
+        
+      }
+
+      header {
+        padding: 20px;
+        text-align: center;
+        color: #436850;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .about-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        width: 600px;
+        height: 600px;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        flex: 1;
+        width: 100%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 60px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      .about-content h2 {
+        text-decoration: underline;
+        color:#337357 ;
+      }
+
+      .about-content:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-icons li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .contact-icons {
+        display: flex;
+        /* flex-direction: column; */
+        /* flex-wrap: wrap; */
+        justify-content: center;
+        margin-top: 0px;
+        /* padding: 400px; */
+        padding-top: 0px;
+      }
+
+      .contact-icons > div {
+        margin: 10px;
+        text-align: center;
+        flex-basis: calc(50% - 20px);
+      }
+
+      .contact-icons a {
+        color: #22ac5e;
+        text-decoration: none;
+        font-size: 24px;
+        transition: color 0.3s;
+      }
+
+      .contact-icons-1
+      {
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      .contact-icons a:hover {
+        color: #168f4f;
+      }
+
+      .contact-icons p {
+        color: #666;
+        margin: 0;
+        transition: color 0.3s;
+      }
+      .contact-icons p:hover {
+        color:green
+      }
+
+      footer {
+        padding: 100px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .contact-elements {
+        flex-basis: calc(50% - 10px);
+        min-width: fit-content;
+        max-width: 400px;
+        background-color: #fff;
+        align-items: center;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      .contact-elements:hover {
+        transform: translateY(-5px);
+      }
+      .contact-section {
+        margin-top: 100px;
+        margin-bottom: 0%;
+        text-align: center;
+      }
+      .contact-icons img{
+        transition: transform 0.3s;
+      }
+      .contact-icons img:hover{
+        transform: scale(1.1);
+      }
+
+      .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 24px;
+        font-family: 'Epilogue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #737373;
+        margin-bottom: 50px;
+    }
+      
+      
+    </style>
+  </head>
+  <body>
+
+    <div class="navBar" >
+
+      <div class="logo">
+          <img src="/assets/icons/logo.svg" alt="logo" width="100px" height="50px">
+          <h2>Madukkakuzhy Caterers and Events</h2>
+      </div>
+  
+      <div class="navEl">
+  
+          <ul class="navList">
+              <li><form action="/" method="get" ><button class="aButton">Home</button></li></form>
+              <li><form action="/about" method="get" ><button class="aButton">About Us</button></li></form>
+              <li><form action="/service" method="get" ><button class="aButton">Services</button></li></form>
+              <li><form action="/JobApplication" method="get" ><button class="aButton">Job Application</button></li></form>
+              <li><form action="/contact" method="get" ><button class="aButton">Contact Us</button></li></form>
+          </ul>
+  
+  
+          
+          <div class="navBtn">
+              
+              <form action="/login" method="get"><button class="btn btn-success">Admin Login</button></form>
+              <form action="/book" method="get"><button class="btn btn-success">Book Now</button></form>
+          </div>
+      </div>
+  
+  </div>
+
+    <header>
+      <h1>About Us</h1>
+    </header>
+
+    <main>
+      <section class="about-section">
+        <div class="about-content">
+          <h2>Our Mission</h2>
+          <p>
+            Our mission at Madukkakuzhy Caterers and Events is to provide
+            exceptional catering and event management services, creating
+            memorable experiences for our clients.
+          </p>
+        </div>
+        <div class="about-content">
+          <h2>Our Vision</h2>
+          <p>
+            Our vision is to become the preferred choice for catering and event
+            management services, known for our commitment to excellence and
+            customer satisfaction.
+          </p>
+        </div>
+        <div class="about-content">
+          <h2>Functionalities</h2>
+          <p>
+            Our company offers a range of functionalities including employee
+            management, job applications, menu customization, stage booking, and
+            more, all accessible through our online platform.
+          </p>
+        </div>
+        <div class="about-content">
+          <h2>Services We Offer</h2>
+          <p>
+            At Madukkakuzhy Caterers and Events, we offer a variety of services
+            including catering for weddings, corporate events, private parties,
+            menu customization, stage booking, and more.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-icons">
+          <div class="contact-icons-1">
+            <div class="contact-elements">
+              <img src="/assets/icons/phone-plus-svgrepo-com.svg" alt="" />
+              <a href="tel:+1234567890"> </a>
+              <p>123-456-7890</p>
+            </div>
+            <div class="contact-elements">
+              <img src="/assets/icons/email-1-svgrepo-com.svg" alt="" />
+              <a href="mailto:info@madukkakuzhycaterers.com"></a>
+              <p>info@madukkakuzhycaterers.com</p>
+            </div>
+          </div>
+          <div class="contact-icons-1">
+            <div class="contact-elements">
+              <img src="/assets/icons/instagram-svgrepo-com.svg" alt="" />
+              <a href="https://www.instagram.com/madukkakuzhycaterers"></a>
+              <p>@madukkakuzhy_caterers</p>
+            </div>
+            <div class="contact-elements">
+              <img src="/assets/icons/location-pin-svgrepo-com.svg" alt="" />
+              <a href="#"></a>
+              <p>Madukkakuzhy Caterers and Events,Kattapana,Idukki</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer">
+      <P>© 2024 Madukkakuzhy Caterers and Events. All rights reserved.</P>
+    </div>
+  </body>
+</html>
